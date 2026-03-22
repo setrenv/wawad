@@ -1,7 +1,5 @@
---!strict
 --[[
-UNC CHAOS LAB v7 - Monolithic aggressive test script
-Strict sUNC-style compliance validator.
+Skazd - Monolithic aggressive test script
 
 Coverage:
 - Closures: checkcaller, clonefunction, getfunctionhash, hookfunction, hookmetamethod,
@@ -240,7 +238,7 @@ local function aliasEq(mainName: string, aliases: {string})
 end
 
 print("")
-print("UNC CHAOS LAB v7")
+print("Skazd")
 print("Heavy monolithic executor torture tests")
 print("")
 
@@ -815,7 +813,7 @@ end
 
 -- Filesystem
 do
-	local base = ".unc_chaos_v7"
+	local base = ".skazd"
 
 	soft("filesystem/cleanup-old", function()
 		if isfolder(base) then
@@ -1490,7 +1488,7 @@ soft("stress/request-head", function()
 end)
 
 soft("stress/filesystem-spam", function()
-	local dir = ".unc_chaos_v7_spam"
+	local dir = ".skazd_spam"
 
 	if not isfolder(dir) then
 		makefolder(dir)
@@ -1513,7 +1511,7 @@ do
 	local elapsed = os.clock() - startClock
 
 	print("")
-	print(("========== UNC CHAOS LAB v7 SUMMARY =========="))
+	print(("========== SKAZD SUMMARY =========="))
 	print(("PASS: %d"):format(pass))
 	print(("FAIL: %d"):format(fail))
 	print(("WARN: %d"):format(warnCount))
@@ -1561,6 +1559,6 @@ do
 			results = results,
 		}
 
-		writefile(".unc_chaos_v7_results.json", HttpService:JSONEncode(out))
+		writefile(".skazd_results.json", HttpService:JSONEncode(out))
 	end)
 end
